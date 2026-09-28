@@ -1,0 +1,26 @@
+# Netlify deploy configuration.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  VITE_CONFIG_NATIVE_IGNORE_WARNING = "true"
+
+# Single-page app: every route (e.g. /work/arun-dental) serves index.html.
+# Netlify Forms submissions are handled before this rule, so the contact form still works.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Long-lived caching for hashed build assets and media.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

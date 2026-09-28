@@ -1,0 +1,102 @@
+/* ==========================================================================
+   DESIGN TOKENS — "Midnight Rose"
+   Deep plum-black ground, dark pink signature. One accent family:
+   --accent (fills, under white text) and --accent-text (pink text on dark).
+   ========================================================================== */
+
+:root {
+  color-scheme: dark;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --fs-hero: clamp(2.5rem, 1.5rem + 3.6vw, 4.75rem);
+  --fs-display: clamp(2rem, 1.35rem + 2.2vw, 3.25rem);
+  --fs-title: clamp(1.3rem, 1.1rem + 0.8vw, 1.85rem);
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --fs-small: 0.875rem;
+  --fs-meta: 0.72rem;
+
+  --lh-tight: 0.95;
+  --lh-title: 1.1;
+  --lh-body: 1.65;
+  --tracking-display: -0.04em;
+  --tracking-meta: 0.14em;
+
+  /* 8px spacing scale */
+  --s-1: 4px;
+  --s0: 8px;
+  --s1: 16px;
+  --s2: 24px;
+  --s3: 32px;
+  --s4: 48px;
+  --s5: 64px;
+  --s6: 96px;
+  --s7: 128px;
+  --s8: 192px;
+
+  /* Layout */
+  --max-w: 1360px;
+  --gutter: clamp(16px, 4.5vw, 80px);
+  --col-gap: clamp(12px, 1.6vw, 24px);
+  --nav-h: 80px;
+  --tabbar-h: 64px;
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --radius-xl: 36px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 150ms;
+  --t-base: 220ms;
+  --t-slow: 320ms;
+
+  --z-nav: 50;
+  --z-drawer: 70;
+  --z-palette: 90;
+  --z-toast: 100;
+
+  /* Colour */
+  --bg: #0d090c;
+  --bg-elev: #120d11;
+  --surface: #171116;
+  --surface-2: #1e161c;
+  --surface-3: #2a1f27;
+  --text: #f6eef2;
+  --text-muted: #b3a2ac;
+  --text-faint: #8e7c87;
+  --border: rgb(255 235 245 / 0.09);
+  --border-strong: rgb(255 235 245 / 0.18);
+  --grid-line: rgb(255 235 245 / 0.04);
+
+  --accent: #d81b60;
+  --accent-hover: #e53572;
+  --accent-deep: #8e0e3f;
+  --accent-text: #ff5c93;
+  --accent-ink: #ffffff;
+  --accent-soft: rgb(216 27 96 / 0.16);
+  --accent-line: rgb(255 92 147 / 0.45);
+
+  --paper: #f6eef2;
+  --paper-ink: #0d090c;
+  --paper-muted: #4a3a44;
+
+  --danger: #ff6b81;
+  --success: #6fdc9a;
+  --spotlight: rgb(255 92 147 / 0.09);
+  --shadow-l: 0 30px 80px -30px rgb(0 0 0 / 0.8), 0 0 0 1px var(--border);
+  --scrim: rgb(8 5 7 / 0.75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --t-fast: 0ms;
+    --t-base: 0ms;
+    --t-slow: 0ms;
+  }
+}

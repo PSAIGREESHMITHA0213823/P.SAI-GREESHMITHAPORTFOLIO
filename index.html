@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>P.SAI GREESHMITHA — Software Engineer & Full Stack Developer</title>
+    <meta
+      name="description"
+      content="P.SAI GREESHMITHA — Software Engineer and Full Stack Developer building AI-powered applications, SaaS platforms, and business, healthcare and education software."
+    />
+    <meta name="author" content="P.SAI GREESHMITHA" />
+    <meta name="theme-color" content="#0d090c" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="%SITE_URL%/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="P.SAI GREESHMITHA" />
+    <meta property="og:title" content="P.SAI GREESHMITHA — Software Engineer & Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="I build real-world software, AI-powered applications, and scalable digital products."
+    />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+    />
+
+    <script type="application/ld+json">
+      %PERSON_JSON_LD%
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--
+      Netlify Forms registration. Netlify finds this static form at deploy time and accepts
+      submissions for "project-inquiry"; the React contact form posts to it. Keep the field
+      names in sync with src/sections/Contact.tsx.
+    -->
+    <form name="project-inquiry" data-netlify="true" netlify-honeypot="website" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="projectType" />
+      <input type="text" name="budget" />
+      <textarea name="message"></textarea>
+      <input type="text" name="website" />
+    </form>
+    <noscript>
+      <p style="padding: 24px; font-family: system-ui">
+        P.SAI GREESHMITHA — Software Engineer | Full Stack Developer. This portfolio needs JavaScript to run.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,364 @@
+/* ==========================================================================
+   CASE STUDY
+   ========================================================================== */
+
+.cs-hero {
+  padding-top: var(--s4);
+  padding-bottom: var(--s4);
+}
+
+.cs-hero__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s2);
+  margin-bottom: var(--s5);
+}
+
+.cs-hero__title-row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: var(--s3);
+  align-items: end;
+}
+
+.cs-hero__title {
+  grid-column: 1 / span 8;
+}
+
+.cs-hero__lede {
+  grid-column: 9 / -1;
+  display: grid;
+  gap: var(--s2);
+}
+
+.cs-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .cs-hero__title,
+  .cs-hero__lede {
+    grid-column: 1 / -1;
+  }
+}
+
+/* full-bleed cover with reveal */
+
+.cs-cover {
+  padding-inline: var(--gutter);
+  max-width: calc(var(--max-w) + 240px);
+  margin-inline: auto;
+}
+
+.cs-cover__frame {
+  aspect-ratio: 21 / 9;
+  border-radius: var(--radius-l);
+  border: 1px solid var(--border);
+  animation: cover-reveal 700ms var(--ease-out) both;
+}
+
+.cs-cover__frame--visual {
+  aspect-ratio: auto;
+  display: grid;
+  place-items: center;
+  padding: clamp(var(--s2), 5vw, var(--s6));
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 32px 32px,
+    var(--bg-elev);
+  overflow: visible;
+}
+
+.cs-cover__frame--visual > .mock {
+  width: min(760px, 100%);
+}
+
+@keyframes cover-reveal {
+  from {
+    clip-path: inset(0 0 100% 0 round var(--radius-l));
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round var(--radius-l));
+    opacity: 1;
+  }
+}
+
+/* The shared-element transition already animates the cover in. */
+::view-transition-group(project-cover) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--ease-out);
+}
+
+@media (max-width: 760px) {
+  .cs-cover__frame:not(.cs-cover__frame--visual) {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-cover__frame {
+    animation: none;
+  }
+}
+
+/* body layout */
+
+.cs-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  padding-top: var(--s6);
+  padding-bottom: var(--s6);
+}
+
+.cs-side {
+  grid-column: 1 / span 3;
+  position: sticky;
+  top: calc(var(--nav-h) + var(--s3));
+  align-self: start;
+  display: grid;
+  gap: var(--s3);
+}
+
+.cs-side__facts {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.cs-side__facts > div {
+  display: grid;
+  gap: 4px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cs-side__facts dd {
+  font-size: var(--fs-small);
+}
+
+.cs-side__nav {
+  position: relative;
+  padding-left: var(--s2);
+}
+
+.cs-side__progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.cs-side__progress span {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: top;
+}
+
+.cs-side__nav ol {
+  display: grid;
+  gap: 2px;
+}
+
+.cs-side__nav a {
+  display: block;
+  padding: 4px 0;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  transition: color var(--t-fast);
+}
+
+.cs-side__nav a:hover {
+  color: var(--text-muted);
+}
+
+.cs-side__nav a.is-active {
+  color: var(--text);
+}
+
+.cs-side__actions {
+  display: grid;
+  gap: var(--s0);
+  justify-items: start;
+}
+
+.cs-main {
+  grid-column: 5 / -1;
+  display: grid;
+  gap: var(--s6);
+  min-width: 0;
+}
+
+@media (max-width: 1000px) {
+  .cs-side {
+    grid-column: 1 / -1;
+    position: static;
+    margin-bottom: var(--s5);
+  }
+
+  .cs-side__facts {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--s2);
+  }
+
+  .cs-side__nav {
+    display: none;
+  }
+
+  .cs-main {
+    grid-column: 1 / -1;
+  }
+}
+
+/* chapters */
+
+.chapter {
+  display: grid;
+  gap: var(--s2);
+  scroll-margin-top: calc(var(--nav-h) + var(--s3));
+}
+
+.chapter__head {
+  display: grid;
+  gap: var(--s0);
+  padding-top: var(--s2);
+  border-top: 1px solid var(--border);
+}
+
+.chapter__text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+.chapter-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s4);
+}
+
+.chapter-pair .chapter:nth-child(2) {
+  margin-top: var(--s6);
+}
+
+@media (max-width: 760px) {
+  .chapter-pair {
+    grid-template-columns: 1fr;
+    gap: var(--s6);
+  }
+
+  .chapter-pair .chapter:nth-child(2) {
+    margin-top: 0;
+  }
+}
+
+.cs-features {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.cs-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  flex-wrap: wrap;
+  min-height: 56px;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.05rem;
+}
+
+.cs-features li.is-unconfirmed {
+  color: var(--text-muted);
+}
+
+.cs-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s0);
+}
+
+.cs-tech .chip {
+  height: 36px;
+  font-size: 0.8rem;
+}
+
+.cs-shots__note {
+  margin-bottom: var(--s1);
+}
+
+.cs-shots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--col-gap);
+}
+
+.cs-shots li:first-child {
+  grid-column: 1 / -1;
+}
+
+.cs-shots figure {
+  display: grid;
+  gap: var(--s0);
+}
+
+@media (max-width: 600px) {
+  .cs-shots {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* next project */
+
+.cs-next {
+  border-top: 1px solid var(--border);
+}
+
+.cs-next__link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: var(--s4);
+  align-items: center;
+  padding-block: var(--s6);
+}
+
+.cs-next__link > div {
+  display: grid;
+  gap: var(--s1);
+}
+
+.cs-next__title {
+  transition: color var(--t-fast);
+}
+
+.cs-next__link:hover .cs-next__title {
+  color: var(--accent-text);
+}
+
+.cs-next__meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cs-next__cover {
+  transition: transform var(--t-slow) var(--ease-out);
+}
+
+.cs-next__link:hover .cs-next__cover {
+  transform: translateY(-4px);
+}
+
+@media (max-width: 760px) {
+  .cs-next__link {
+    grid-template-columns: 1fr;
+  }
+}
